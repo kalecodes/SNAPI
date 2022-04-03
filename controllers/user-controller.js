@@ -62,7 +62,9 @@ const userController = {
 
     // delete a user by id
     deleteUser(req, res) {
-
+        Pizza.findOneAndDelete({ _id: req.params.userId })
+            .then(dbUserData => res.json(dbUserData))
+            .catch(err => res.json(err));
     },
 
     // add a friend to a users friend list

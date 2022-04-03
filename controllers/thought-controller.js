@@ -70,7 +70,9 @@ const thoughtController = {
 
     // delete a thought by id
     deleteThought(req, res) {
-
+        Thought.findOneAndDelete({ _id: req.params.thoughtId })
+            .then(dbThoughtData => res.json(dbThoughtData))
+            .catch(err => res.json(err));
     },
 
     // add reaction to a thought by id
