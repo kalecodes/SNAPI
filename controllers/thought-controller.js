@@ -54,7 +54,18 @@ const thoughtController = {
 
     // update a thought by id
     updateThought(req, res) {
-
+        Thought.findOneAndUpdate({ _id: req.params.thoughtId }, req.body, { new:true })
+            .then((dbThoughtData) => {
+                if (!dbThoughtData) {
+                    res.status(404).json({ message: 'No thought found with this id!' });
+                    return;
+                }
+                res.json(dbThoughtData)
+            })
+            .catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+            })
     },
 
     // delete a thought by id

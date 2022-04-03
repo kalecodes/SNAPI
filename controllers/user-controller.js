@@ -46,7 +46,18 @@ const userController = {
 
     // update a user by id
     updateUser(req,res) {
-
+        User.findOneAndUpdate({ _id: req.params.userId }, req.body, { new: true })
+            .then((dbUserData) => {
+                if (!dbUserData) {
+                    res.status(404).json({ message: 'No user found with this id!' });
+                    return;
+                }
+                res.json(dbUserData)
+            })
+            .catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+            })
     },
 
     // delete a user by id
