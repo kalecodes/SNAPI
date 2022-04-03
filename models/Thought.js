@@ -30,7 +30,7 @@ const ThoughtSchema = new Schema(
 
 // getter method to format the timestamp on query
 function formatDate(createdAt) {
-
+    return createdAt.toDateString()
 };
 
 // virtual that retrieves the length of the thought's reactions array field on query

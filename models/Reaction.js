@@ -23,7 +23,7 @@ const reactionSchema = new Schema({
 
 // getter method to format the timestamp on query
 function formatDate(createdAt) {
-
+    return createdAt.toDateString();
 };
 
 module.exports = reactionSchema;
