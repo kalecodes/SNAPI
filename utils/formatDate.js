@@ -1,6 +1,6 @@
 module.exports = (
     timestamp,
-    { monthLength = 'short', dateSuffix = true } = {}
+    { monthLength = 'short' } = {}
   ) => {
     let months;
   
@@ -39,13 +39,7 @@ module.exports = (
     const dateObj = new Date(timestamp);
     const formatMonth = months[dateObj.getMonth()];
   
-    let day;
-  
-    if (dateSuffix) {
-      day = addDateSuffix(dateObj.getDate());
-    } else {
-      day = dateObj.getDate();
-    }
+    let day = dateObj.getDate();
   
     const year = dateObj.getFullYear();
   
