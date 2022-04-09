@@ -1,4 +1,4 @@
-const { Thought, User } = require('../models');
+const { Thought, User, Reaction } = require('../models');
 
 const thoughtController = {
     // get all thoughts 
@@ -77,7 +77,22 @@ const thoughtController = {
 
     // add reaction to a thought by id
     addReaction(req, res) {
-
+        Reaction.create(req.body)
+            .then(({ _id }) => {
+                return Thought.findOneAndUpdate(
+                    { _id: req.params.thoughtId},
+                    { $push: { reactions: _id } },
+                    { new: true }
+                );
+            })
+            .then(dbThoughtData => {
+                if (!dbThoughtData) {
+                    res.status(404).json({ message: 'No pizza found with this id!' });
+                    return;
+                }
+                res.json(dbThoughtData);
+            })
+            .catch(err => res.json(err));
     },
 
     // delete a reaction by id
