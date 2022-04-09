@@ -4,14 +4,14 @@ const userController = {
     // get all users
     getUsers(req, res) {
         User.find()
-            // .populate({
-            //     path: 'thoughts', 
-            //     select: '-__v'
-            // })
-            // .populate({
-            //     path: 'friends',
-            //     select: '-__v'
-            // })
+            .populate({
+                path: 'thoughts', 
+                select: '-__v'
+            })
+            .populate({
+                path: 'friends',
+                select: '-__v'
+            })
             .select('-__v')
             .sort({ _id: -1 })
             .then((dbUserData) => {
@@ -27,14 +27,14 @@ const userController = {
     getSingleUser(req, res) {
         User.findOne({ _id: req.params.userId })
             .select('-__v')
-            // .populate({
-            //     path: 'thoughts', 
-            //     select: '-__v'
-            // })
-            // .populate({
-            //     path: 'friends',
-            //     select: '-__v'
-            // })
+            .populate({
+                path: 'thoughts', 
+                select: '-__v'
+            })
+            .populate({
+                path: 'friends',
+                select: '-__v'
+            })
             .then((dbUserData) => {
                 if (!dbUserData) {
                     return res.status(404).json({ message: 'No user with this id!' });

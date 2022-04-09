@@ -14,6 +14,9 @@ const ThoughtSchema = new Schema(
             default: Date.now,
             get: createdAt => formatDate(createdAt)
         },
+        userId: {
+            type: String
+        },
         username: {
             type: String,
             required: 'Username is Required'
@@ -22,7 +25,8 @@ const ThoughtSchema = new Schema(
     },
     {
         toJSON: {
-            virtuals: true
+            virtuals: true,
+            getters: true
         },
         id: false
     }
