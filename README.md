@@ -9,6 +9,7 @@ This is a social network API using MongoDB and Mongoose ORM to perform CRUD oper
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#usage)
+* [Video-Demo](#video-demo)
 * [License](#license)
 * [Contributing](#contributions)
 * [Tests](#tests)
@@ -21,6 +22,9 @@ Install this applicatioin by cloning our repository from github to your device. 
 
 ## Usage
 Since this application does not have a front end, an API developing or testing software such as Insomnia will be needed to make requests. 
+
+## Video-Demo
+Screen recording demo: [Google Drive](https://drive.google.com/file/d/1LjRrhA3K9uuLHQYIcr1cr-hEgX5XFXbI/view?usp=sharing) 
 
 ## License
 None
