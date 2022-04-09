@@ -4,7 +4,7 @@ const thoughtController = {
     // get all thoughts 
     getThoughts(req, res) {
         Thought.find()
-            .sort({ createdAt: desc })
+            .sort({ createdAt: -1 })
             .then((dbThoughtData) => {
                 res.json(dbThoughtData);
             })
@@ -33,7 +33,7 @@ const thoughtController = {
     createThought(req, res) {
         Thought.create(req.body)
             .then((dbThoughtData) => {
-                return User.findOneAneUpdate(
+                return User.findOneAndUpdate(
                     { _id: req.body.userId },
                     { $push: { thoughts: dbThoughtData._id } },
                     { new: true }
