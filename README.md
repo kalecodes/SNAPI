@@ -16,9 +16,9 @@ This is a social network API using MongoDB and Mongoose ORM to perform CRUD oper
 * [Questions](#questions)
 
 ## Installation
-Install this applicatioin by cloning our repository from github to your device. Enter the following commands in the root terminal:
-`npm i` to install dependencies
-`npm start` to run the application on the localhost server
+Install this applicatioin by cloning our repository from github to your device. Enter the following commands in the root terminal:   
+`npm i` to install dependencies.   
+`npm start` to run the application on the localhost server.   
 
 ## Usage
 Since this application does not have a front end, an API developing or testing software such as Insomnia will be needed to make requests. 
