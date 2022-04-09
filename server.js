@@ -1,5 +1,4 @@
 const express = require('express');
-// const db = require('./config/connection');
 const routes = require('./routes');
 const mongoose = require('mongoose');
 
@@ -20,10 +19,10 @@ mongoose.connect(`mongodb://localhost:27017/SNAPI`, {
 // use this to log mongo queries being executed
 mongoose.set(`debug`, true);
 
-// db.once('open', () => {
-    app.listen(PORT, () => {
-        console.log(`API server runnning on port ${PORT}!`);
-    })
-// })
+
+app.listen(PORT, () => {
+    console.log(`API server runnning on port ${PORT}!`);
+})
+
 
 
