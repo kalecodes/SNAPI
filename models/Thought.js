@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 const reactionSchema = require('./Reaction');
+const formatDate = require('../utils/formatDate')
 
 const ThoughtSchema = new Schema(
     {
@@ -31,11 +32,6 @@ const ThoughtSchema = new Schema(
         id: false
     }
 );
-
-// getter method to format the timestamp on query
-function formatDate(createdAt) {
-    return createdAt.toDateString()
-};
 
 // virtual that retrieves the length of the thought's reactions array field on query
 ThoughtSchema.virtual('reactionCount').get(function() {
